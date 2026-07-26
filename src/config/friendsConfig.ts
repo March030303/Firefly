@@ -38,7 +38,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "Firefly主题模板文档",
 		siteurl: "https://docs-firefly.cuteleaf.cn",
 		tags: ["Docs"],
-		weight: 9,
+		weight: 1,
 		enabled: true,
 	},
 	{
@@ -47,7 +47,7 @@ export const friendsConfig: FriendLink[] = [
 		desc: "The web framework for content-driven websites. ⭐️ Star to support our work!",
 		siteurl: "https://github.com/withastro/astro",
 		tags: ["Framework"],
-		weight: 8,
+		weight: 1,
 		enabled: true,
 	},
 	{
@@ -58,6 +58,32 @@ export const friendsConfig: FriendLink[] = [
     tags: ["Blog"],
     weight: 11,
     enabled: true,
+},{
+    title: "March",
+    imgurl: "https://cdn.jsdelivr.net/gh/March030303/Picgo@main/img/3.jpg",
+    desc: "本人的博客",
+    siteurl: "https://blog.march03.com",
+    tags: ["Blog"],
+	weight: 12,
+	enabled: true,
+},
+
+{
+    title: "Zhongye",
+    imgurl: "https://avatars.githubusercontent.com/u/145737758?s=400&u=a77ba5dbc8f7c9fd54fe608100908cc6fddaee74&v=4",
+    desc: "登高峰乃见云平",
+    siteurl: "https://zhongye1.github.io",
+    tags: ["Blog"],
+    weight: 11,
+    enabled: true,
+},{
+    title: "云深不知屋",
+    imgurl: "https://blog.figgeer.com/_astro/touxiang.Dj5T0jsV_foa4s.webp",
+    desc: "a beat and a book",
+    siteurl: "https://blog.figgeer.com/",
+    tags: ["Blog"],
+	weight: 10,
+	enabled: true,
 },
 ];
 
