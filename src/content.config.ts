@@ -42,7 +42,7 @@ const postsCollection: ContentCollection<PostData> = defineCollection({
 	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/posts" }),
 	schema: z.object({
 		title: z.string(),
-		published: z.coerce.date(),
+		published: z.date(),
 		updated: z.date().optional(),
 		draft: z.boolean().optional().default(false),
 		description: z.string().optional().default(""),
@@ -76,7 +76,7 @@ const specCollection: ContentCollection<Record<string, never>> =
 const dynamicCollection: ContentCollection<DynamicData> = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "./src/content/dynamic" }),
 	schema: z.object({
-		published: z.coerce.date(),
+		published: z.date(),
 		pinned: z.boolean().optional().default(false),
 		location: z.string().optional().default(""),
 	}),
