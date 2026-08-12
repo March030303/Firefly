@@ -1,5 +1,5 @@
 ---
-title: 以宏观角度初步了解Vue
+title: 初步了解Vue
 published: 2026-08-05
 description: 记录下这半个月学到的Vue知识（自用）
 tags:
