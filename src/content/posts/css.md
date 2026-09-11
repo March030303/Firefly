@@ -1,13 +1,13 @@
 ---
-title: Css
+title: css复习
 published: 2026-08-11
-description: 复习css的基本内容
+description: 其实是面试当天临时总结的，算不上啥文章（虽然很像草稿.......）
 tags:
-  - 标签
+  - 前端
+  - css
 category: 分类
 slug: css-study
 images: images/
-draft: "true"
 ---
 # 尺寸操作
 

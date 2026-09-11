@@ -416,6 +416,7 @@ let props = withDefaults(defineProps<{list?:Persons}>(),{
 
 ## 组件通信
 ### 父=>子 
+#### vue2写法
 
 1、没有router时，先在hello组件加上props
 ![[Pasted image 20260808184325.png|374]]
@@ -464,7 +465,22 @@ let props = withDefaults(defineProps<{list?:Persons}>(),{
 [2]、组件插槽：直接在app的hello标签先内容，再在子组件中搞一个空的slot就可以了（默认插槽）
 
 最重要的，是要知道：子组件在p标签自己写的话，数据找的是自己的props。插槽的话，找的是父组件的data
+
+#### vue3写法
+基本原理和vue2类似，但是在子组件不是写props:{}，而是用defineprops（不需要import），
+格式是defineProps["name","title"]
+```
+```vue
+<script setup lang="ts" name="Child">
+	import { ref } from "vue";
+	const toy = ref('奥特曼')
+	
+	defineProps(['car','getToy'])
+</script>
+```
 ### 子=>父
+#### vue2写法
+
 一般步骤
 [1]、子组件建一个按钮，点击绑定函数childhandle，再在this.$emit传给父组件。
 ```methods:{
@@ -499,6 +515,11 @@ let props = withDefaults(defineProps<{list?:Persons}>(),{
 
   }
 ```
+
+
+### 兄=>弟
+
+vue3中，下载mitt并用其方法实现任意两个组件的通信
 
 
 ## 组件插槽
@@ -793,18 +814,75 @@ const router = createRouter({
 ```
 3、再在news设置link跳转
 ```
-<router-link to="/news/detail">xxxx</router-link>
+<router-link to="/news/detail">xxxx</router-link>//字符串写法
 <!-- 或 -->
-<router-link :to="{path:'/news/detail'}">xxxx</router-link>
+<router-link :to="{path:'/news/detail'}">xxxx</router-link>//js对象写法
 ```
 4、记得要展示，设置routerview
 
 ## 路由传参
+前置：路由如下
+```
+routes:[
 
+    {name:'zhuye',
+
+        path:'/home',
+
+     component:Home
+
+    },
+
+    {name:'xinwen',
+
+        path:'/news',
+
+     component:News,
+
+     children:[
+
+        {name:'xiang',
+
+            path:'detail/:id/:title/:content',   //占位
+
+            component:Detail
+
+        }
+
+     ]
+
+    },
+
+    {name:'guanyu',
+
+        path:'/about',
+
+    component:About
+
+    }
+]
+```
 ### query
+```
 
+:to={ path:'/news/detail'        //也可以用name
+,query:{
+配置query参数
+}
+}
+```
 ### params
-
+只能在name里操作，参数里不能有对象和数组，route.js里要提前占位
+```
+   :to="{
+          name:'xiang', //用name跳转
+          params:{
+            id:news.id,
+            title:news.title,
+            content:news.title
+          }
+        }"
+```
 # Pinia
 
 ## 前置步骤：
@@ -817,3 +895,56 @@ app.use(pinia)
 ```
 
 ## 使用步骤
+在store文件夹中创建与组件相关的xxx.ts文件(lovetalk.vue--->talk.ts)
+
+store里可以存储：
+1. state(数据)
+2. getter（计算属性）
+3. action（方法）
+
+```
+import { defineStore } from 'pinia'
+
+export const useCountStore = defineStore('count', {
+
+  
+
+    state(){
+
+        return{
+
+            sum:6         //放数据
+
+        }
+
+    },
+
+    getters:{
+
+        bigsum(state){        //参数state，可以拿到里面放的数据
+
+            return state.sum*10
+
+  
+
+        }
+
+        }
+
+    ,
+
+    actions:{ 
+ 
+        limit(n:number){         //这个方法可以限制数字只能加到10
+
+            if (this.sum < 10) {
+
+                 this.sum += n//不能写state.sum++，作用域不对
+
+        }
+
+    }}
+
+})
+```
+
