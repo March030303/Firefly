@@ -64,7 +64,7 @@ export const friendsConfig: FriendLink[] = [
     desc: "本人的博客",
     siteurl: "https://blog.march03.com",
     tags: ["Blog"],
-	weight: 12,
+	weight: 33,
 	enabled: true,
 },
 
@@ -74,7 +74,7 @@ export const friendsConfig: FriendLink[] = [
     desc: "登高峰乃见云平",
     siteurl: "https://zhongye1.github.io",
     tags: ["Blog"],
-    weight: 11,
+    weight: 22,
     enabled: true,
 },{
     title: "云深不知屋",
@@ -84,7 +84,15 @@ export const friendsConfig: FriendLink[] = [
     tags: ["Blog"],
 	weight: 10,
 	enabled: true,
-},
+},{
+	title: "Qianguyihao",
+   	imgurl: " ",
+    desc: "Qianguyihao的博客",
+    siteurl: "https://www.cnblogs.com/qianguyihao",
+    tags: ["Blog"],
+	weight: 15,
+	enabled: true,
+}
 ];
 
 

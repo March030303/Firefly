@@ -335,7 +335,7 @@ let {name,age}=torefs(person)
     }
   }
 ```
-![[Pasted image 20260810020542.png]]
+![](https://cdn.jsdelivr.net/gh/March030303/Picgo@main/img/Pasted%20image%2020260810020542.png)![](https://cdn.jsdelivr.net/gh/March030303/Picgo@main/img/Pasted%20image%2020260810020542.png)
 
 ## Typescript约束对象属性
 
@@ -362,7 +362,7 @@ export type Persons = Person[]
 ```
 
 与组件同级的文件夹types里创建该接口
-![[Pasted image 20260809162458.png]]
+![](https://cdn.jsdelivr.net/gh/March030303/Picgo@main/img/Pasted%20image%2020260809162458.png)
 
 
 组件文件导入后，在组件里写的数据都要遵循此规范
@@ -419,7 +419,7 @@ let props = withDefaults(defineProps<{list?:Persons}>(),{
 #### vue2写法
 
 1、没有router时，先在hello组件加上props
-![[Pasted image 20260808184325.png|374]]
+![420](https://cdn.jsdelivr.net/gh/March030303/Picgo@main/img/Pasted%20image%2020260808184325.png)
 ```
 
   name: 'HelloWorld',
@@ -899,8 +899,8 @@ app.use(pinia)
 
 store里可以存储：
 1. state(数据)
-2. getter（计算属性）
-3. action（方法）
+2. getters（计算属性）
+3. actions（方法）
 
 ```
 import { defineStore } from 'pinia'
